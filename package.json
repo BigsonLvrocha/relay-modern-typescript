@@ -60,6 +60,8 @@
     "relay-devtools": "^1.4.0",
     "relay-runtime": "5.0.0",
     "style-loader": "^1.0.0",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.40.1",
