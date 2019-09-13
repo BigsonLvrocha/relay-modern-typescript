@@ -1,11 +1,16 @@
-import * as React from 'react';
-import { graphql, createFragmentContainer } from 'react-relay';
-import { createQueryRendererModern } from './relay';
-import { Flex } from 'rebass';
-import { alignItems, flexDirection, justifyContent, space } from 'styled-system';
-import styled from 'styled-components';
+import * as React from "react";
+import { graphql, createFragmentContainer } from "react-relay";
+import { createQueryRendererModern } from "./relay";
+import { Flex } from "rebass";
+import {
+  alignItems,
+  flexDirection,
+  justifyContent,
+  space
+} from "styled-system";
+import styled from "styled-components";
 
-import { UserList_query } from './__generated__/UserList_query.graphql';
+import { UserList_query } from "./__generated__/UserList_query.graphql";
 
 const Card = styled.a`
   border-radius: 2px;
@@ -23,8 +28,8 @@ const Card = styled.a`
   ${justifyContent}
 `;
 
-type Props = {
-  query:  UserList_query
+interface Props {
+  query: UserList_query;
 }
 class UserList extends React.Component<Props> {
   render() {
@@ -32,15 +37,15 @@ class UserList extends React.Component<Props> {
     const { users } = query;
 
     return (
-      <Flex flexDirection='column'>
-        {users.edges.map(({node}) => (
-          <Card key={node.id}>
-            <span>User: {node.name}</span>
-            <span>Email: {node.name}</span>
+      <Flex flexDirection="column">
+        {users!.edges.map(data => (
+          <Card key={data!.node.id}>
+            <span>User: {data!.node.name}</span>
+            <span>Email: {data!.node.name}</span>
           </Card>
         ))}
       </Flex>
-    )
+    );
   }
 }
 
@@ -65,5 +70,5 @@ export default createQueryRendererModern(UserListFragmentContainer, UserList, {
     query UserListQuery {
       ...UserList_query
     }
-  `,
+  `
 });

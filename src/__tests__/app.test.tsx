@@ -1,10 +1,10 @@
-import React from 'react';
-import App from '../App';
-import { render } from 'react-testing-library';
+import * as React from "react";
+import App from "../App";
+import { render } from "react-testing-library";
 
-describe('<App />', () => {
-  it('should render the component', () => {
+describe("<App />", () => {
+  it("should render the component", () => {
     const { getByText } = render(<App />);
-    expect(getByText('Hi my world')).toBeTruthy();
+    expect(getByText("Hi my world")).toBeTruthy();
   });
-})
+});
